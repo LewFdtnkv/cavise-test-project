@@ -63,18 +63,20 @@ interface TextWindowProps {
         <div className="textPath_div">
           <ul className="img_load">
             <li>
-              <input
+            
+                Загрузить изображение
+              
+            </li>
+            <li className="li_img_load">
+            <input
                 type="file"
                 accept="image/*"
                 onChange={handleImageUpload}
                 style={{ display: 'none' }}
                 id="file-upload"
-              />
-              <label htmlFor="file-upload" style={{ cursor: 'pointer' }}>
-                Загрузить изображение
-              </label>
-            </li>
-            <li className="li_img_load">Выбрать файл</li>
+                name="file-upload"/>
+              <label htmlFor="file-upload" style={{ cursor: 'pointer' }}>Выбрать файл</label>
+              </li>
           </ul>
           <hr />
           <label className="postText_label">Текст поста</label>

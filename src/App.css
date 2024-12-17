@@ -131,6 +131,7 @@ button {
   margin-right: 20px;
 
 }
+
 .img_load{
   display: flex;
   justify-content: start;
@@ -149,6 +150,8 @@ button:hover {
   justify-content: center;
 }
 .picture_block_div{
+  display: flex;
+  flex-direction: column;
   background-color: #f9f9f9;
   border: 1px solid #ddd;
   border-radius: 8px;
@@ -186,4 +189,13 @@ ul {
   border: 1px solid #888;
   border-radius: 8px;
   padding: 5px;
+}
+.text_preview {
+  display: flex;
+  flex-direction: column; /* Элементы будут располагаться вертикально */
+  align-items: flex-start; /* Размещение элементов по правому краю */
+}
+
+.text_preview > * {
+  margin-bottom: 5px; /* Отступ между элементами */
 }

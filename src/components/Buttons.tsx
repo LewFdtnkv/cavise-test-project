@@ -1,3 +1,5 @@
+import React from 'react';
+
 interface Button {
   text: string;
   link: string;
@@ -19,10 +21,9 @@ export default function Buttons({ rows, setRows }: ButtonsProps) {
   const maxButtonsPerRow = 3;
 
   const addRow = () => {
-
     if (rows.length < maxRows) {
-      const id = rows.length
-      setRows([...rows, { id: id, buttons: [] }]);
+      const id = rows.length;   
+      setRows([...rows, { id, buttons: [] }]);
     }
   };
 
@@ -34,7 +35,7 @@ export default function Buttons({ rows, setRows }: ButtonsProps) {
     setRows(
       rows.map((row) =>
         row.id === rowId && row.buttons.length < maxButtonsPerRow
-          ? { ...row, buttons: [...row.buttons, { text: "", link: "" }] }
+          ? { ...row, buttons: [...row.buttons, { text: '', link: '' }] }
           : row
       )
     );
@@ -53,7 +54,12 @@ export default function Buttons({ rows, setRows }: ButtonsProps) {
     );
   };
 
-  const handleChange = (rowId: number, index: number, field: keyof Button, value: string) => {
+  const handleChange = (
+    rowId: number,
+    index: number,
+    field: keyof Button,
+    value: string
+  ) => {
     setRows(
       rows.map((row) =>
         row.id === rowId
@@ -73,7 +79,7 @@ export default function Buttons({ rows, setRows }: ButtonsProps) {
       <h3>Кнопки</h3>
       {rows.map((row) => (
         <div key={row.id} className="row">
-          <span>Строка {rows.indexOf(row) + 1}</span>
+          <span>Строка {row.id + 1}</span> {/* Directly use row.id to show row index */}
           <button onClick={() => deleteRow(row.id)}>Удалить строку</button>
           {row.buttons.map((button, index) => (
             <div key={index} className="buttonGroup">
@@ -81,13 +87,13 @@ export default function Buttons({ rows, setRows }: ButtonsProps) {
                 type="text"
                 placeholder="Текст"
                 value={button.text}
-                onChange={(e) => handleChange(row.id, index, "text", e.target.value)}
+                onChange={(e) => handleChange(row.id, index, 'text', e.target.value)}
               />
               <input
                 type="text"
                 placeholder="Ссылка"
                 value={button.link}
-                onChange={(e) => handleChange(row.id, index, "link", e.target.value)}
+                onChange={(e) => handleChange(row.id, index, 'link', e.target.value)}
               />
               <button onClick={() => deleteButton(row.id, index)}>X</button>
             </div>

@@ -3,7 +3,6 @@ import { Row } from './types';
 interface PictureWindowProps {
   previewImage: string;
   text: string;
-  postTitle: string;
   rows: Row[];
 }
 
@@ -32,7 +31,7 @@ export default function PictureWindow({
               <li className="li_button_link" key={index}>
                 {row.buttons.map((button, buttonIndex) => (
                   <button
-                    className={`button_link ${!button.link ? 'inactive' : ''}`}
+                    className='button_link'
                     key={`${index}-${buttonIndex}`}
                     onClick={() =>
                       !button.link

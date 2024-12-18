@@ -6,8 +6,8 @@ export interface Button {
   export interface Row {
     id: number;  
     buttons: Button[];
-  }
-  
+}
+
   export interface PostData {
     title: string;
     content: string[];

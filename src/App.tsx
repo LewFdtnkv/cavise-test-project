@@ -37,7 +37,6 @@ export default function App() {
       <PictureWindow
         previewImage={previewImage}
         text={text}
-        postTitle={postTitle}
         rows={rows}
       />
     </div>
